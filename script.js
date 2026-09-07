@@ -1,5 +1,5 @@
         // Background Music Setup & Start Overlay
-        const bgMusic = new Audio('tiki-tiki-boosted.mp3');
+        const bgMusic = new Audio('sound/tiki-tiki-boosted.mp3');
         bgMusic.loop = false;
         bgMusic.volume = 0.6;
 
@@ -19,6 +19,8 @@
         }
 
         function skipBGM() {
+            const animeSound = new Audio('sound/anime-ahh.mp3');
+            animeSound.play().catch(e => console.log('Audio error:', e));
             if (startOverlay) {
                 startOverlay.style.opacity = '0';
                 setTimeout(() => startOverlay.remove(), 500);
@@ -297,7 +299,7 @@
                 document.getElementById('bugCount').textContent = bugScore;
                 
                 // Play bug sound (fahhhhh.mp3)
-                const bugAudio = new Audio('fahhhhh.mp3');
+                const bugAudio = new Audio('sound/fahhhhh.mp3');
                 bugAudio.play().catch(err => console.log('Bug audio error:', err));
                 
                 // Show XP popup
