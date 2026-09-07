@@ -243,7 +243,42 @@
         const hud = document.createElement('div');
         hud.className = 'bug-score-hud';
         hud.innerHTML = '<i class="fa-solid fa-bug"></i> <span id="bugCount">0</span>';
+        hud.style.cursor = 'pointer';
+        hud.title = 'Klik untuk melihat penjelasan bug yang dibasmi!';
         document.body.appendChild(hud);
+
+        const bugDescriptions = [
+            {
+                title: "BUGY",
+                desc: "...."
+            },
+        ];
+
+        const bugModal = document.getElementById('bugModal');
+        const bugModalTitle = document.getElementById('bugModalTitle');
+        const bugModalDesc = document.getElementById('bugModalDesc');
+        const closeBugModalBtn = document.getElementById('closeBugModalBtn');
+
+        if (bugModal && closeBugModalBtn) {
+            closeBugModalBtn.addEventListener('click', () => {
+                bugModal.style.display = 'none';
+            });
+            bugModal.addEventListener('click', (e) => {
+                if (e.target === bugModal) {
+                    bugModal.style.display = 'none';
+                }
+            });
+        }
+
+        // Click HUD container to show bug explanation popup
+        hud.addEventListener('click', () => {
+            const randomBugInfo = bugDescriptions[Math.floor(Math.random() * bugDescriptions.length)];
+            if (bugModalTitle && bugModalDesc && bugModal) {
+                bugModalTitle.textContent = randomBugInfo.title;
+                bugModalDesc.innerHTML = `${randomBugInfo.desc}<br><br><span style="color: var(--accent-color); font-weight: bold;">Total Bug Squashed: ${bugScore}</span>`;
+                bugModal.style.display = 'flex';
+            }
+        });
 
         function spawnBug() {
             const bug = document.createElement('div');

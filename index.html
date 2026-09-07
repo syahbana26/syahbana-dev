@@ -209,5 +209,15 @@
             <button id="closeModalBtn" class="btn btn-primary" style="width: 100%; justify-content: center;"><i class="fa-solid fa-check"></i> CLAIM REWARD</button>
         </div>
     </div>
+
+    <!-- Bug Explanation Modal Popup -->
+    <div id="bugModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(5px); display: none; align-items: center; justify-content: center; z-index: 100000;">
+        <div style="background: var(--bg-card); border: 2px solid #ff3366; border-radius: 12px; padding: 2.5rem; max-width: 450px; width: 90%; text-align: center; box-shadow: 0 0 40px rgba(255, 51, 102, 0.3);">
+            <i class="fa-solid fa-bug" style="font-size: 3rem; color: #ff3366; margin-bottom: 1rem; animation: floatItem 3s ease-in-out infinite;"></i>
+            <h3 id="bugModalTitle" style="font-family: var(--font-heading); color: #ff3366; margin-bottom: 1rem; font-size: 1.5rem;">BUG SQUASHED!</h3>
+            <p id="bugModalDesc" style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem;">Penjelasan bug...</p>
+            <button id="closeBugModalBtn" class="btn btn-primary" style="width: 100%; justify-content: center; background: #ff3366; border-color: #ff3366;"><i class="fa-solid fa-check"></i> LANJUTKAN HUNTING</button>
+        </div>
+    </div>
 </body>
 </html>
