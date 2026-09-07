@@ -5,6 +5,7 @@
 
         const startOverlay = document.getElementById('startOverlay');
         const startBtn = document.getElementById('startBtn');
+        const skipBtn = document.getElementById('skipBtn');
 
         function startBGM() {
             bgMusic.play().then(() => {
@@ -17,8 +18,19 @@
             });
         }
 
+        function skipBGM() {
+            if (startOverlay) {
+                startOverlay.style.opacity = '0';
+                setTimeout(() => startOverlay.remove(), 500);
+            }
+        }
+
         if (startBtn) {
             startBtn.addEventListener('click', startBGM);
+        }
+
+        if (skipBtn) {
+            skipBtn.addEventListener('click', skipBGM);
         }
 
         // Mobile Menu Toggle
@@ -206,7 +218,7 @@
         let bugScore = 0;
         const hud = document.createElement('div');
         hud.className = 'bug-score-hud';
-        hud.innerHTML = '<i class="fa-solid fa-bug"></i> BUGS SQUASHED: <span id="bugCount">0</span>';
+        hud.innerHTML = '<i class="fa-solid fa-bug"></i> <span id="bugCount">0</span>';
         document.body.appendChild(hud);
 
         function spawnBug() {

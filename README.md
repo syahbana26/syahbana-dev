@@ -26,7 +26,9 @@ Website portofolio pribadi interaktif bergaya *retro gaming* / *cyberpunk* yang 
 
 1. Clone atau download repository ini ke komputer Anda:
    ```bash
-   git clone https://github.com/username/example-porto.git
+   git clone https://github.com/syahbana26/syahbana-dev.git
+
+
    ```
 2. Masuk ke direktori project:
    ```bash

@@ -583,8 +583,17 @@
                 padding: 0 1rem;
             }
 
-            .contact-wrapper {
+            .contact-wrapper,
+            .about-content {
                 padding: 1.5rem 1rem;
+            }
+
+            .contact-details-row {
+                flex-direction: column;
+            }
+
+            .about-img-box {
+                height: 280px;
             }
 
             .contact-form input,
@@ -627,6 +636,11 @@
         }
 
         @media (max-width: 576px) {
+            #startOverlay div {
+                max-width: 90% !important;
+                padding: 1.5rem 1rem !important;
+                margin: 1rem;
+            }
             .hero-content h1 {
                 font-size: 1.8rem !important;
             }
@@ -641,11 +655,16 @@
                 gap: 6px;
             }
             .bug-score-hud {
-                top: 90px;
-                right: 15px;
-                bottom: auto;
+                top: auto;
+                bottom: 10px;
+                right: 10px;
                 padding: 6px 10px;
                 font-size: 0.65rem;
+                border-radius: 30px;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                white-space: nowrap;
             }
         }
 
