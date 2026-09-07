@@ -213,8 +213,11 @@
             const bug = document.createElement('div');
             bug.className = 'bug-hunter-target';
             bug.innerHTML = '<i class="fa-solid fa-bug"></i>';
-            bug.style.left = `${Math.random() * (window.innerWidth - 60)}px`;
-            bug.style.top = `${Math.random() * (window.innerHeight - 60)}px`;
+            const padding = 50;
+            const maxX = Math.max(50, window.innerWidth - padding);
+            const maxY = Math.max(120, window.innerHeight - padding);
+            bug.style.left = `${Math.floor(Math.random() * (maxX - padding) + padding)}px`;
+            bug.style.top = `${Math.floor(Math.random() * (maxY - 160) + 120)}px`;
             document.body.appendChild(bug);
 
             bug.addEventListener('click', (e) => {
