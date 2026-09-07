@@ -61,12 +61,36 @@
 
         // Contact Form Submission
         const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const playerName = document.getElementById('name').value;
-            alert(`QUEST COMPLETED! Pesan dari ${playerName} telah terkirim ke server. Terima kasih telah menghubungi!`);
-            contactForm.reset();
-        });
+        const contactModal = document.getElementById('contactModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalMessage = document.getElementById('modalMessage');
+
+        if (contactForm && contactModal) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const playerName = document.getElementById('name').value;
+                const playerEmail = document.getElementById('email').value;
+                const playerMessage = document.getElementById('message').value;
+
+                if (modalMessage) {
+                    modalMessage.innerHTML = `Terima kasih <strong>${playerName}</strong> (${playerEmail}).<br>Pesan Anda telah diterkirim!`;
+                }
+                contactModal.style.display = 'flex';
+                contactForm.reset();
+            });
+
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', () => {
+                    contactModal.style.display = 'none';
+                });
+            }
+
+            contactModal.addEventListener('click', (e) => {
+                if (e.target === contactModal) {
+                    contactModal.style.display = 'none';
+                }
+            });
+        }
 
         // Scrollspy for active nav link
         const sections = document.querySelectorAll('section');
@@ -237,10 +261,8 @@
                 bugScore++;
                 document.getElementById('bugCount').textContent = bugScore;
                 
-                // Play random bug sound (anime-ahh.mp3 or fahhhhh.mp3)
-                const bugSounds = ['anime-ahh.mp3', 'fahhhhh.mp3'];
-                const randomSound = bugSounds[Math.floor(Math.random() * bugSounds.length)];
-                const bugAudio = new Audio(randomSound);
+                // Play bug sound (fahhhhh.mp3)
+                const bugAudio = new Audio('fahhhhh.mp3');
                 bugAudio.play().catch(err => console.log('Bug audio error:', err));
                 
                 // Show XP popup
