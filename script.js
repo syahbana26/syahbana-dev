@@ -73,7 +73,7 @@
                 const playerMessage = document.getElementById('message').value;
 
                 if (modalMessage) {
-                    modalMessage.innerHTML = `Terima kasih <strong>${playerName}</strong> (${playerEmail}).<br>Pesan Anda telah diterkirim!`;
+                    modalMessage.innerHTML = `Terima kasih <strong>${playerName}</strong> (${playerEmail}).<br>Kalau serius lanjut whatsapp😘!`;
                 }
                 contactModal.style.display = 'flex';
                 contactForm.reset();
