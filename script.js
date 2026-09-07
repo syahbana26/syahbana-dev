@@ -1,4 +1,27 @@
-// Mobile Menu Toggle
+        // Background Music Setup & Start Overlay
+        const bgMusic = new Audio('tiki-tiki-boosted.mp3');
+        bgMusic.loop = false;
+        bgMusic.volume = 0.6;
+
+        const startOverlay = document.getElementById('startOverlay');
+        const startBtn = document.getElementById('startBtn');
+
+        function startBGM() {
+            bgMusic.play().then(() => {
+                if (startOverlay) {
+                    startOverlay.style.opacity = '0';
+                    setTimeout(() => startOverlay.remove(), 500);
+                }
+            }).catch(e => {
+                console.log('Audio play error:', e);
+            });
+        }
+
+        if (startBtn) {
+            startBtn.addEventListener('click', startBGM);
+        }
+
+        // Mobile Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navbar = document.getElementById('navbar');
 
@@ -198,7 +221,12 @@
                 e.stopPropagation();
                 bugScore++;
                 document.getElementById('bugCount').textContent = bugScore;
-                playBeep(1046.5, 0.12, 'square');
+                
+                // Play random bug sound (anime-ahh.mp3 or fahhhhh.mp3)
+                const bugSounds = ['anime-ahh.mp3', 'fahhhhh.mp3'];
+                const randomSound = bugSounds[Math.floor(Math.random() * bugSounds.length)];
+                const bugAudio = new Audio(randomSound);
+                bugAudio.play().catch(err => console.log('Bug audio error:', err));
                 
                 // Show XP popup
                 const popup = document.createElement('div');
